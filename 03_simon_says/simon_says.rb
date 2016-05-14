@@ -31,3 +31,27 @@ end
 def first_word (words)
     words.split.first
 end
+
+def titleize (words)
+#    words.capitalize #capitalizes the first word
+    words_array = words.split(" ")
+    capitalized_words = ""
+    little_words_first = []
+    if (words_array.first == "and" or words_array.first == "or" or words_array.first == "over" or words_array.first == "the")
+        little_words_first.push "#{words_array.first}"
+    end
+    words_array.each do |word|
+        if (word == "and" or word == "or" or word == "over" or word == "the")
+            if little_words_first.include? "#{word}"
+                capitalized_words = capitalized_words + word.capitalize + " "
+                little_words_first.pop
+            else
+                capitalized_words = capitalized_words + word + " "
+            end
+        else
+            capitalized_words = capitalized_words + word.capitalize + " "
+        end
+    end
+    capitalized_words.chomp(" ")
+
+end
