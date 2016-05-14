@@ -29,14 +29,5 @@ def start_of_word (word, letter_number)
 end
 
 def first_word (words)
-    firstword = ""
-    current_letter = words[0,1]
-    firstword = current_letter
-    i = 2
-    while current_letter != " " do
-        firstword = firstword + words[0,i]
-        i = i + 1
-        current_letter = words[0,i]
-    end
-    firstword
+    words.split.first
 end
